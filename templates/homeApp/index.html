@@ -185,20 +185,21 @@
                 <div class="col-md-6 bg-f8 padding-tb margin-bottom-80 animated fadeInRightShort slow delay-500">
                     <div class="booking-from">
                         <h2>Make An <span class="color-defult">Appointment</span></h2>
-                        <div class="border-style-2 margin-bottom-30"></div>
-                        <p class="margin-bottom-30">Consectetur adipisicing elit. Id dignissimos atque debitis esse possimus, <br>fuga tenetur rem et. Vitae, repudiandae.</p>
+                        <div class="border-style-2 margin-bottom-30">
+                            <p class="margin-bottom-30">Consectetur adipisicing elit. Id dignissimos atque debitis esse possimus, <br>fuga tenetur rem et. Vitae, repudiandae.</p>
 
-                        {% if messages %}
-                        {% for message in messages %}
+                            {% if messages %}
+                                {% for message in messages %}
 
-                        <div class="alert alert-{% if message.tags %} message.tags {% endif %} alert-dismissible" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <strong>{{ messages }}</strong>
-                          </div>
+                                <div class="alert alert-{% if message.tags %}{{message.tags}}{% endif %} alert-dismissible" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    
+                                </div>
 
-                        {% endfor %}
-                        {% endif %}
-                        
+                            {% endfor %}
+                            {% endif %}
+
 
                         <form action="" method="POST">
                             {% csrf_token %}
@@ -225,6 +226,8 @@
                                 <div id="form-messages"></div>
                             </div>
                         </form>
+
+
                     </div>
                 </div>
             </div>
@@ -232,6 +235,7 @@
     </div>
 </section>
 <!-- appointment end -->
+
 
 <!-- divider start -->
 <section class="service-area over-layer-default" style="background-image:url(img/bg/5.jpg);">
@@ -277,7 +281,8 @@
 </section>
 <!-- divider end -->
 
- <!-- portfolio start -->
+
+<!-- portfolio start -->
 <section class="gallery-area">
     <div class="container">
         <div class="section-title">
@@ -300,6 +305,7 @@
                         <li class=""><a href="#" data-filter=".gp-five" class="current">Residential</a></li>
                     </ul>
                 </div>
+
 
                 <div class="gallery col-3 gutter">
                     <div class="gallery-item gp-two">

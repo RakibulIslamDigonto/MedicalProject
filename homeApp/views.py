@@ -28,7 +28,7 @@ class HomeView(View):
         appoinment = AppoinmentForm(request.POST)
         if appoinment.is_valid():
             appoinment.save()
-            messages.success(request, "You are Appoinmented")
+            messages.success(request, 'Profile details updated.')
             return redirect('homeApp:home')
         return render(request, self.temp_name, {'appoinment': appoinment})
 
