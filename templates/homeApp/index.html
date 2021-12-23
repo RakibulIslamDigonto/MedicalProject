@@ -108,13 +108,16 @@
                         </div>
                     </div>
                     <div class="clearfix margin-top-20 margin-right-10"> 
-                        <div class="skills" data-percent="85%">
+                        {% for skill in skills %}
+                        <div class="skills" data-percent="{{ skill.skill_Quantity }}%">
                             <div class="title-bar">
-                              <h5>Cardiology</h5>
+                              <h5>{{ skill.skill_title }}</h5>
                             </div>
-                            <span>85%</span>
+                            <span>{{ skill.skill_Quantity }}%</span>
                             <div class="skillbar-1"></div>  
                         </div>
+                        {% endfor %}
+<!-- 
                         <div class="skills" data-percent="60%">
                             <div class="title-bar">
                               <h5>General Practice</h5>
@@ -135,7 +138,7 @@
                             </div>
                             <span>60%</span>
                             <div class="skillbar-4"></div>  
-                        </div>
+                        </div> -->
                     </div>
 
                 </div>

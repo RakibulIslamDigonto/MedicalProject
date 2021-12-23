@@ -14,9 +14,12 @@ class SlideModel(models.Model):
         except:
             url=''
         return url
-        
 
 
+class Skill(models.Model):
+    skill_title = models.CharField(max_length=200)
+    skill_Quantity = models.IntegerField()
 
-
+    def __str__(self):
+        return self.skill_title
 
