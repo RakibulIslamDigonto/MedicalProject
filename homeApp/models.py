@@ -52,9 +52,21 @@ class Appoinment(models.Model):
 class Department(models.Model):
     dep_name = models.CharField('First Name', max_length=50)
     slug = models.SlugField(unique=True)
+    dep_short_des= models.TextField(blank=True)
+    dep_image = models.ImageField(upload_to='dep_images/', blank=True)
 
     def __str__(self):
         return self.dep_name
+
+
+    def image_url(self):
+        try:
+            url=self.dep_image.url
+        except:
+            url=''
+        return url
+
+    
 
 
 class Department_galary(models.Model):

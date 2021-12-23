@@ -365,96 +365,25 @@
         
         <div class="section-content">
             <div class="row">
-                <div class="col-md-4 col-sm-6">
+                {% for department in departments %}
+                  <div class="col-md-4 col-sm-6">
                     <div class="practice-item-1">
                         <div class="practice-img">
                             <a href="#">
-                                <img src="{% static 'medicalstatic/img/services/4.jpg' %}" alt="">
+                                <img src="{{ department.image_url }}" alt="">
                                 <span class="flaticon-heart-1"></span>
                             </a>
                         </div>
                         <div class="practice-content">
-                            <h4><a href="#">Medical evacuation</a></h4>
-                            <p>Personal Health Record makes it easy to join and stay on a wellness program - lose weight or manage a chronic condition easily.</p>
+                            <h4><a href="#">{{ department.dep_name }}</a></h4>
+                            <p>{{ department.dep_short_des }}</p>
                             <a href="#" class="btn-theme hvr-bounce-to-top"> Read more</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="practice-item-1">
-                        <div class="practice-img">
-                            <a href="#">
-                                <img src="{% static 'medicalstatic/img/services/5.jpg' %}" alt="">
-                                <span class="flaticon-heart-1"></span>
-                            </a>
-                        </div>
-                        <div class="practice-content">
-                            <h4><a href="#"> Physical examination</a></h4>
-                            <p>Personal Health Record makes it easy to join and stay on a wellness program - lose weight or manage a chronic condition easily.</p>
-                            <a href="#" class="btn-theme hvr-bounce-to-top"> Read more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="practice-item-1">
-                        <div class="practice-img">
-                            <a href="#">
-                                <img src="{% static 'medicalstatic/img/services/6.jpg' %}" alt="">
-                                <span class="flaticon-heart-1"></span>
-                            </a>
-                        </div>
-                        <div class="practice-content">
-                            <h4><a href="#"> Ultrasound Endoscopy</a></h4>
-                            <p>Personal Health Record makes it easy to join and stay on a wellness program - lose weight or manage a chronic condition easily.</p>
-                            <a href="#" class="btn-theme hvr-bounce-to-top"> Read more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="practice-item-1">
-                        <div class="practice-img">
-                            <a href="#">
-                                <img src="{% static 'medicalstatic/img/services/1.jpg' %}" alt="">
-                                <span class="flaticon-heart-1"></span>
-                            </a>
-                        </div>
-                        <div class="practice-content">
-                            <h4><a href="#"> Radiology / X-Ray</a></h4>
-                            <p>Personal Health Record makes it easy to join and stay on a wellness program - lose weight or manage a chronic condition easily.</p>
-                            <a href="#" class="btn-theme hvr-bounce-to-top"> Read more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="practice-item-1">
-                        <div class="practice-img">
-                            <a href="#">
-                                <img src="{% static 'medicalstatic/img/services/8.jpg' %}" alt="">
-                                <span class="flaticon-heart-1"></span>
-                            </a>
-                        </div>
-                        <div class="practice-content">
-                            <h4><a href="#"> CRITICAL CARE</a></h4>
-                            <p>Personal Health Record makes it easy to join and stay on a wellness program - lose weight or manage a chronic condition easily.</p>
-                            <a href="#" class="btn-theme hvr-bounce-to-top"> Read more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="practice-item-1">
-                        <div class="practice-img">
-                            <a href="#">
-                                <img src="{% static 'medicalstatic/img/services/3.jpg' %}" alt="">
-                                <span class="flaticon-heart-1"></span>
-                            </a>
-                        </div>
-                        <div class="practice-content">
-                            <h4><a href="#"> Safe & Secure</a></h4>
-                            <p>Personal Health Record makes it easy to join and stay on a wellness program - lose weight or manage a chronic condition easily.</p>
-                            <a href="#" class="btn-theme hvr-bounce-to-top"> Read more</a>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
+                
+                
             </div>
         </div>
     </div>
