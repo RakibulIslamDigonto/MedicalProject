@@ -298,100 +298,37 @@
             <div class="row clearfix">
                 <div class="gallery-filter-item text-center">
                     <ul class="gallery-filter">
-                        <li class="active"><a href="#" data-filter="*" class="current">All Projects</a></li>
-                        <li class=""><a href="#" data-filter=".gp-two" class="current"> Buliding</a></li>
-                        <li class=""><a href="#" data-filter=".gp-three" class="current">Industry</a></li>
-                        <li class=""><a href="#" data-filter=".gp-four" class="current">Transportation</a></li>
-                        <li class=""><a href="#" data-filter=".gp-five" class="current">Residential</a></li>
+                        <li class="active"><a href="#" data-filter="*" class="current">All Department</a></li>
+                        {% for department in departments %}
+
+                        
+                        <li class=""><a href="#" data-filter=".{{department.slug}}" class="current">{{ department.dep_name }}</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
 
 
                 <div class="gallery col-3 gutter">
-                    <div class="gallery-item gp-two">
+                    {% for department_gal in department_gals %}
+                      
+                    
+                    <div class="gallery-item {{ department_gal.department.slug }}">
                         <div class="thumb">
-                            <img src="{% static 'medicalstatic/img/portfolio/1.jpg' %}" alt="">
+                            <img src="{{ department_gal.image_url }}" alt="">
                             <div class="gallery-hover">
                                 <div class="gallery-info">
                                     <div class="gallery-btn">
-                                        <a href="{% static 'medicalstatic/img/portfolio/1.jpg' %}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view"> <i class="pe-7s-graph2"></i>  </a>
+                                        <a href="{{ department_gal.image_url }}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view"> <i class="pe-7s-graph2"></i>  </a>
                                     </div>
-                                    <h4><a href="{% static 'medicalstatic/img/portfolio/1.jpg' %}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view">Your title here</a></h4>
-                                    <p><a href="#">Sub Title here</a></p>
+                                    <h4><a href="{{ department_gal.image_url }}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view">{{ department_gal.dep_title }}</a></h4>
+                                    <p><a href="#">{{ department_gal.dep_sub_title }}</a></p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item gp-three">
-                        <div class="thumb">
-                            <img src="{% static 'medicalstatic/img/portfolio/2.jpg' %}" alt="">
-                            <div class="gallery-hover">
-                                <div class="gallery-info">
-                                    <div class="gallery-btn">
-                                        <a href="{% static 'medicalstatic/img/portfolio/2.jpg' %}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view"> <i class="pe-7s-graph2"></i>  </a>
-                                    </div>
-                                    <h4><a href="{% static 'medicalstatic/img/portfolio/2.jpg' %}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view">Your title here</a></h4>
-                                    <p><a href="#">Sub Title here</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gallery-item gp-four">
-                        <div class="thumb">
-                            <img src="{% static 'medicalstatic/img/portfolio/3.jpg' %}" alt="">
-                            <div class="gallery-hover">
-                                <div class="gallery-info">
-                                    <div class="gallery-btn">
-                                        <a href="{% static 'medicalstatic/img/portfolio/3.jpg' %}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view"> <i class="pe-7s-graph2"></i>  </a>
-                                    </div>
-                                    <h4><a href="{% static 'medicalstatic/img/portfolio/3.jpg' %}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view">Your title here</a></h4>
-                                    <p><a href="#">Sub Title here</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gallery-item gp-five">
-                        <div class="thumb">
-                            <img src="{% static 'medicalstatic/img/portfolio/4.jpg' %}" alt="">
-                            <div class="gallery-hover">
-                                <div class="gallery-info">
-                                    <div class="gallery-btn">
-                                        <a href="{% static 'medicalstatic/img/portfolio/4.jpg' %}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view"> <i class="pe-7s-graph2"></i>  </a>
-                                    </div>
-                                    <h4><a href="{% static 'medicalstatic/img/portfolio/4.jpg' %}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view">Your title here</a></h4>
-                                    <p><a href="#">Sub Title here</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gallery-item gp-two">
-                        <div class="thumb">
-                            <img src="{% static 'medicalstatic/img/portfolio/5.jpg' %}" alt="">
-                            <div class="gallery-hover">
-                                <div class="gallery-info">
-                                    <div class="gallery-btn">
-                                        <a href="{% static 'medicalstatic/img/portfolio/5.jpg' %}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view"> <i class="pe-7s-graph2"></i>  </a>
-                                    </div>
-                                    <h4><a href="{% static 'medicalstatic/img/portfolio/5.jpg' %}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view">Your title here</a></h4>
-                                    <p><a href="#">Sub Title here</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gallery-item gp-three">
-                        <div class="thumb">
-                            <img src="{% static 'medicalstatic/img/portfolio/6.jpg' %}" alt="">
-                            <div class="gallery-hover">
-                                <div class="gallery-info">
-                                    <div class="gallery-btn">
-                                        <a href="{% static 'medicalstatic/img/portfolio/6.jpg' %}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view"> <i class="pe-7s-graph2"></i>  </a>
-                                    </div>
-                                    <h4><a href="{% static 'medicalstatic/img/portfolio/6.jpg' %}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view">Your title here</a></h4>
-                                    <p><a href="#">Sub Title here</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
+
+
                 </div>
             </div>
         </div>
