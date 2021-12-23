@@ -107,6 +107,8 @@
                             <p>Medicative <span class="color-defult fw-b">adipisicing elit</span>. Animi eveniet ipsam, error dolorum impedit debitis, officiis sint saepe similique quasi dolor, ut. Ipsum quaerat saepe, sapiente doloribus ab laudantium ipsam!</p>
                         </div>
                     </div>
+
+
                     <div class="clearfix margin-top-20 margin-right-10"> 
                         {% for skill in skills %}
                         <div class="skills" data-percent="{{ skill.skill_Quantity }}%">
@@ -117,29 +119,8 @@
                             <div class="skillbar-1"></div>  
                         </div>
                         {% endfor %}
-<!-- 
-                        <div class="skills" data-percent="60%">
-                            <div class="title-bar">
-                              <h5>General Practice</h5>
-                            </div>
-                            <span>60%</span>
-                            <div class="skillbar-2"></div>  
-                        </div>
-                        <div class="skills" data-percent="89%">
-                            <div class="title-bar">
-                              <h5>General surgery</h5>
-                            </div>
-                            <span>89%</span>
-                            <div class="skillbar-3"></div>  
-                        </div>
-                        <div class="skills" data-percent="60%">
-                            <div class="title-bar">
-                              <h5>Pharmacology</h5>
-                            </div>
-                            <span>60%</span>
-                            <div class="skillbar-4"></div>  
-                        </div> -->
                     </div>
+
 
                 </div>
                 <div class="col-md-5">
@@ -156,6 +137,7 @@
 <!-- service start -->
 <section class="service-area bg-f8 animatedParent animateOnce">
     <div class="container">
+
         <div class="section-title">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 text-center">
@@ -165,67 +147,32 @@
                 </div>
             </div>
         </div>
+
+
+
         <div class="section-content">
             <div class="row">
+
+                {% for service in services %}
                 <div class="col-xs-12 col-sm-6 col-md-4">
+                    
                     <div class="service-item text-center style-3">
                         <span class="flaticon-heart-1"></span>
-                        <h4><a href="#">Heart Transplants</a></h4>
+                        <h4><a href="#">{{ service.service_title }}</a></h4>
                         <div class="border-center"></div>
-                        <p>  Provide direct support to an individual, family or community by paying medical expenses for service.</p>
-                        <button type="submit" class="btn btn-theme margin-top-20" data-text="Send Message">Read More</button>
+                        <p>  {{ service.service_des }}</p>
+                        <a class="btn btn-theme margin-top-20" href="/">{{ service.read_more }}</a>
                     </div>
+                    
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="service-item text-center style-3">
-                        <span class="flaticon-broken-bone"></span>
-                        <h4><a href="#">Orthopaedics</a></h4>
-                        <div class="border-center"></div>
-                        <p>  Provide direct support to an individual, family or community by paying medical expenses for service.</p>
-                        <button type="submit" class="btn btn-theme margin-top-20" data-text="Send Message">Read More</button>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="service-item text-center style-3">
-                        <span class="flaticon-stomach"></span>
-                        <h4><a href="#">Gastroenterology</a></h4>
-                        <div class="border-center"></div>
-                        <p>  Provide direct support to an individual, family or community by paying medical expenses for service.</p>
-                        <button type="submit" class="btn btn-theme margin-top-20" data-text="Send Message">Read More</button>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="service-item text-center style-3">
-                        <span class="flaticon-brain-2"></span>
-                        <h4><a href="#">Neurosciences</a></h4>
-                        <div class="border-center"></div>
-                        <p>  Provide direct support to an individual, family or community by paying medical expenses for service.</p>
-                        <button type="submit" class="btn btn-theme margin-top-20" data-text="Send Message">Read More</button>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="service-item text-center style-3">
-                        <span class="flaticon-spine-bone"></span>
-                        <h4><a href="#">Spine Care</a></h4>
-                        <div class="border-center"></div>
-                        <p>  Provide direct support to an individual, family or community by paying medical expenses for service.</p>
-                        <button type="submit" class="btn btn-theme margin-top-20" data-text="Send Message">Read More</button>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="service-item text-center style-3">
-                        <span class="flaticon-virus"></span>
-                        <h4><a href="#">Cancer Care</a></h4>
-                        <div class="border-center"></div>
-                        <p>  Provide direct support to an individual, family or community by paying medical expenses for service.</p>
-                        <button type="submit" class="btn btn-theme margin-top-20" data-text="Send Message">Read More</button>
-                    </div>
-                </div>
+                {% endfor %}
+
             </div>
         </div>
     </div>
 </section>
 <!-- service end -->
+
 
 <!-- appointment start -->
 <section class=" animatedParent animateOnce">
@@ -240,30 +187,39 @@
                         <h2>Make An <span class="color-defult">Appointment</span></h2>
                         <div class="border-style-2 margin-bottom-30"></div>
                         <p class="margin-bottom-30">Consectetur adipisicing elit. Id dignissimos atque debitis esse possimus, <br>fuga tenetur rem et. Vitae, repudiandae.</p>
-                        <form method="post" action="#">
+
+                        {% if messages %}
+                        {% for message in messages %}
+
+                        <div class="alert alert-{% if message.tags %} message.tags {% endif %} alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <strong>{{ messages }}</strong>
+                          </div>
+
+                        {% endfor %}
+                        {% endif %}
+                        
+
+                        <form action="" method="POST">
+                            {% csrf_token %}
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" name="name" id="fname" class="form-control" placeholder="First Name" required>
+                                    {{appoinment.f_name}}
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" name="name" id="lname" class="form-control" placeholder="Last Name" required>
-                                </div>
+                                    {{appoinment.l_name}}                                </div>
                                 <div class="col-md-6">
-                                    <input type="text" name="subject" class="form-control" placeholder="Input Subject" id="subject" required>
-                                </div>
+                                    {{appoinment.subject}}                                </div>
                                 <div class="col-md-6">
-                                    <input type="text" name="Reservation" class="form-control" placeholder="Input Date" id="Reservation" required>
-                                </div>
+                                    {{appoinment.appointment_date}}                                </div>
                                 <div class="col-md-6">
-                                    <input type="email" name="email" class="form-control" placeholder="Your Email Here" id="email" required>
-                                </div>
+                                    {{appoinment.email}}                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" name="phone" class="form-control" placeholder="Your Phone" id="phone" required>
-                                </div>
+                                    {{appoinment.phone}}                                 </div>
                                 <div class="col-md-12">
                                     <div class="contact-textarea">
-                                        <textarea class="form-control" rows="6" placeholder="Wright Message" id="message" name="message" required></textarea>
-                                        <button class="btn btn-theme" type="submit" value="Submit Form">Send Message</button>
+                                        {{appoinment.message}}
+                                        <button class="btn btn-theme" type="submit">Send Message</button>
                                     </div>
                                 </div>
                                 <div id="form-messages"></div>

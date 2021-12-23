@@ -1,5 +1,5 @@
 from django.contrib import admin
-from homeApp.models import SlideModel, Skill
+from homeApp.models import SlideModel, Skill, Services, Appoinment
 
 # Register your models here.
 class SlideModelAdmin(admin.ModelAdmin):
@@ -18,3 +18,24 @@ class SkillAdmin(admin.ModelAdmin):
         'skill_Quantity'
     ]
 admin.site.register(Skill, SkillAdmin)
+
+
+class ServidesAdmin(admin.ModelAdmin):
+    list_display = [
+        'service_title',
+        'service_des',
+    ]
+admin.site.register(Services, ServidesAdmin)
+
+
+class AppoinmentAdmin(admin.ModelAdmin):
+    list_display = [
+        'f_name',
+        'l_name',
+        'subject',
+        'appointment_date',
+        'email',
+        'phone',
+        'message',
+    ]
+admin.site.register(Appoinment, AppoinmentAdmin)
