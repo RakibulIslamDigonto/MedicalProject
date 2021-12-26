@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from django.views.generic import View
-from .models import Department, Department_galary, SlideModel, Skill, Services, Appoinment
+from .models import Clint_feedback, Department, Department_galary, SlideModel, Skill, Services, Appoinment, Schedule, Doctor, Clint_feedback, ServicesCount
 from .forms import AppoinmentForm
 from django.contrib import messages
 
@@ -16,6 +16,9 @@ class HomeView(View):
         departments = Department.objects.all()
         department_gals = Department_galary.objects.filter(department__in=departments)
         appoinment = AppoinmentForm
+        doctor = Doctor.objects.prefetch_related('doc_schedule').all()
+        cli_feedback = Clint_feedback.objects.all()
+        services_count = ServicesCount.objects.all()
 
         context ={
             'slides': slides,
@@ -23,7 +26,10 @@ class HomeView(View):
             'services': services,
             'appoinment': appoinment,
             'departments': departments,
-            'department_gals': department_gals
+            'department_gals': department_gals,
+            'doctors': doctor,
+            'Clint_feedbacks': cli_feedback,
+            'services_counts': services_count
             }
         return render(request, self.temp_name, context)
 

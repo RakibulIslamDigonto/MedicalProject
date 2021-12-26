@@ -383,7 +383,6 @@
                 </div>
                 {% endfor %}
                 
-                
             </div>
         </div>
     </div>
@@ -405,216 +404,45 @@
         <div class="section-content">
             <div class="row">
                 <div class="team-carousel">
+
+                    {% for doctor in doctors %}
                     <div class="item">
+                    
+                          
+                        
                         <div class="team-item-2">
-                            <img src="{% static 'medicalstatic/img/team/1.png' %}" alt="">
+                            <img src="{{ doctor.image_url }}" alt="">
                             <div class="team-contact">
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter">{{ doctor.fb_link }}</i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin">{{ doctor.tw_link }}</i></a></li>
+                                    <li><a href="#"><i class="fa fa-dribbble">{{ doctor.li_link }}</i></a></li>
                                 </ul>
                             </div>
                             <div class="team-content">
-                                <h4><a href="#">Dr. Mokles Beller</a></h4>
-                                <h6>Cardiologists</h6>
+                                <h4><a href="#">{{ doctor.doc_name }}</a></h4>
+                                <h6>{{ doctor.dep_title }}</h6>
                                 <div class="team-content-icon">
                                     <i class="flaticon-heart"></i>
                                 </div>
                             </div>
                             <div class="timetable">
+
+                                {% for shedule in doctor.doc_schedule.all %}
                                 <div class="item">
-                                    <div class="label">Monday-Friday</div>
-                                    <div class="value">08:00 - 17:00</div>
+                                    <div class="label">{{ shedule.day }}</div>
+                                    <div class="value">{{ shedule.time }}</div>
                                 </div>
-                                <div class="item">
-                                    <div class="label">Saturday</div>
-                                    <div class="value">10:00 - 16:00</div>
-                                </div>
-                                <div class="item">
-                                    <div class="label">Sunday</div>
-                                    <div class="value">12:00 - 14:00</div>
-                                </div>
+                                {% endfor %}
+                                
+
                                 <a href="#" class="btn-theme text-center btn-block"> View Profile</a>
                             </div>
                         </div>
+                    
                     </div>
-                    <div class="item">
-                        <div class="team-item-2">
-                            <img src="{% static 'medicalstatic/img/team/2.png' %}" alt="">
-                            <div class="team-contact">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="team-content">
-                                <h4><a href="#">Dr. George Beller</a></h4>
-                                <h6>Cardiologists</h6>
-                                <div class="team-content-icon">
-                                    <i class="flaticon-heart"></i>
-                                </div>
-                            </div>
-                            <div class="timetable">
-                                <div class="item">
-                                    <div class="label">Monday-Friday</div>
-                                    <div class="value">08:00 - 17:00</div>
-                                </div>
-                                <div class="item">
-                                    <div class="label">Saturday</div>
-                                    <div class="value">10:00 - 16:00</div>
-                                </div>
-                                <div class="item">
-                                    <div class="label">Sunday</div>
-                                    <div class="value">12:00 - 14:00</div>
-                                </div>
-                                <a href="#" class="btn-theme text-center btn-block"> View Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="team-item-2">
-                            <img src="{% static 'medicalstatic/img/team/3.png' %}" alt="">
-                            <div class="team-contact">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="team-content">
-                                <h4><a href="#">Dr. George Beller</a></h4>
-                                <h6>Cardiologists</h6>
-                                <div class="team-content-icon">
-                                    <i class="flaticon-heart"></i>
-                                </div>
-                            </div>
-                            <div class="timetable">
-                                <div class="item">
-                                    <div class="label">Monday-Friday</div>
-                                    <div class="value">08:00 - 17:00</div>
-                                </div>
-                                <div class="item">
-                                    <div class="label">Saturday</div>
-                                    <div class="value">10:00 - 16:00</div>
-                                </div>
-                                <div class="item">
-                                    <div class="label">Sunday</div>
-                                    <div class="value">12:00 - 14:00</div>
-                                </div>
-                                <a href="#" class="btn-theme text-center btn-block"> View Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="team-item-2">
-                            <img src="{% static 'medicalstatic/img/team/4.png' %}" alt="">
-                            <div class="team-contact">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="team-content">
-                                <h4><a href="#">Dr. George Beller</a></h4>
-                                <h6>Cardiologists</h6>
-                                <div class="team-content-icon">
-                                    <i class="flaticon-heart"></i>
-                                </div>
-                            </div>
-                            <div class="timetable">
-                                <div class="item">
-                                    <div class="label">Monday-Friday</div>
-                                    <div class="value">08:00 - 17:00</div>
-                                </div>
-                                <div class="item">
-                                    <div class="label">Saturday</div>
-                                    <div class="value">10:00 - 16:00</div>
-                                </div>
-                                <div class="item">
-                                    <div class="label">Sunday</div>
-                                    <div class="value">12:00 - 14:00</div>
-                                </div>
-                                <a href="#" class="btn-theme text-center btn-block"> View Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="team-item-2">
-                            <img src="{% static 'medicalstatic/img/team/5.png' %}" alt="">
-                            <div class="team-contact">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="team-content">
-                                <h4><a href="#">Dr. George Beller</a></h4>
-                                <h6>Cardiologists</h6>
-                                <div class="team-content-icon">
-                                    <i class="flaticon-heart"></i>
-                                </div>
-                            </div>
-                            <div class="timetable">
-                                <div class="item">
-                                    <div class="label">Monday-Friday</div>
-                                    <div class="value">08:00 - 17:00</div>
-                                </div>
-                                <div class="item">
-                                    <div class="label">Saturday</div>
-                                    <div class="value">10:00 - 16:00</div>
-                                </div>
-                                <div class="item">
-                                    <div class="label">Sunday</div>
-                                    <div class="value">12:00 - 14:00</div>
-                                </div>
-                                <a href="#" class="btn-theme text-center btn-block"> View Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="team-item-2">
-                            <img src="{% static 'medicalstatic/img/team/3.png' %}" alt="">
-                            <div class="team-contact">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="team-content">
-                                <h4><a href="#">Dr. George Beller</a></h4>
-                                <h6>Cardiologists</h6>
-                                <div class="team-content-icon">
-                                    <i class="flaticon-heart"></i>
-                                </div>
-                            </div>
-                            <div class="timetable">
-                                <div class="item">
-                                    <div class="label">Monday-Friday</div>
-                                    <div class="value">08:00 - 17:00</div>
-                                </div>
-                                <div class="item">
-                                    <div class="label">Saturday</div>
-                                    <div class="value">10:00 - 16:00</div>
-                                </div>
-                                <div class="item">
-                                    <div class="label">Sunday</div>
-                                    <div class="value">12:00 - 14:00</div>
-                                </div>
-                                <a href="#" class="btn-theme text-center btn-block"> View Profile</a>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
+
                 </div>
             </div>
         </div>
@@ -626,15 +454,18 @@
 <section class="funfact-field over-layer-default" style="background-image: url('img/bg/6.jpg')">
     <div class="container-fluid">
         <div class="row">
+            {% for services_count in services_counts %}
             <div class="col-md-3 col-sm-6 col-xs-6">
                 <div class="counter-col text-center">
                     <i class="flaticon-heart"></i>
                     <div class="count">
-                        <div class="start-count">25</div>
-                        <h4>Heart Transplants</h4>
+                        <div class="start-count">{{ services_count.service_count }}</div>
+                        <h4>{{ services_count.services_title }}</h4>
                     </div>
                 </div>
             </div>
+            {% endfor %}
+<!--             
             <div class="col-md-3 col-sm-6 col-xs-6">
                 <div class="counter-col text-center">
                     <i class="flaticon-human-lungs"></i>
@@ -661,7 +492,7 @@
                         <h4>EXTPART Doctor</h4>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
@@ -683,63 +514,31 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <div class="testimonial-carousel-one">
+
+                        {% for Clint_feedback in Clint_feedbacks %}
+                          
+                        
                         <div class="item">
                             <div class="testimonial-item text-center">
                                 <div class="testimonial-author">
                                     <div class="author-img">
-                                        <img class="img-responsive" src="{% static 'medicalstatic/img/testimonial/1.png' %}" alt="" />
+                                        <img class="img-responsive" src="{{ Clint_feedback.image_url }}" alt="" />
                                     </div>
-                                    <h4>John Daniel</h4>
-                                    <h6>business man</h6>
-                                    <ul>
+                                    <h4>{{ Clint_feedback.cli_name }}</h4>
+                                    <h6>{{ Clint_feedback.cli_designation }}</h6>
+                                    <!-- <ul>
                                         <li><i class="fa fa-star" aria-hidden="true"></i></li>
                                         <li><i class="fa fa-star" aria-hidden="true"></i></li>
                                         <li><i class="fa fa-star" aria-hidden="true"></i></li>
                                         <li><i class="fa fa-star" aria-hidden="true"></i></li>
                                         <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                    </ul>
+                                    </ul> -->
                                 </div>
-                                <p>consectetur adipisicing elit. Nemo ex doloremque maiores quas, cumque commodi eaque molestiae in ratione nam obcaecati nihil provident illum eius sed ullam amet, expedita molestias iusto.</p> 
+                                <p>{{ Clint_feedback.cli_feedback }}</p> 
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="testimonial-item text-center">
-                                <div class="testimonial-author">
-                                    <div class="author-img">
-                                        <img class="img-responsive" src="{% static 'medicalstatic/img/testimonial/2.png' %}" alt="" />
-                                    </div>
-                                    <h4>John Daniel</h4>
-                                    <h6>business man</h6>
-                                    <ul>
-                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                    </ul>
-                                </div>
-                                <p>consectetur adipisicing elit. Nemo ex doloremque maiores quas, cumque commodi eaque molestiae in ratione nam obcaecati nihil provident illum eius sed ullam amet, expedita molestias iusto.</p> 
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimonial-item text-center">
-                                <div class="testimonial-author">
-                                    <div class="author-img">
-                                        <img class="img-responsive" src="{% static 'medicalstatic/img/testimonial/3.png' %}" alt="" />
-                                    </div>
-                                    <h4>John Daniel</h4>
-                                    <h6>business man</h6>
-                                    <ul>
-                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                    </ul>
-                                </div>
-                                <p>consectetur adipisicing elit. Nemo ex doloremque maiores quas, cumque commodi eaque molestiae in ratione nam obcaecati nihil provident illum eius sed ullam amet, expedita molestias iusto.</p> 
-                            </div>
-                        </div>
+                        {% endfor %}
+
                     </div>
                 </div>
             </div>
@@ -748,79 +547,4 @@
 </section>
 <!-- Testimonial end -->
 
-<!-- blog start -->
-<section class="blog-area bg-f8">
-    <div class="container">
-        <div class="section-title">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2 text-center">
-                    <h2>Latest <span class="color-defult">news</span></h2>
-                    <div class="line-border-center bg-defult"></div>
-                    <p>Repellendus error placeat numquam doloribus perferendis consequatur maxime molestiae soluta Corporis quidem quaerat accusantium omnis repudiandae nulla recusandae</p>
-                </div>
-            </div>
-        </div>
-        <div class="section-content">
-            <div class="row">
-                <div class="blog-feature">
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="blog-item style-1">
-                            <div class="blog-date text-center">
-                                <i class="pe-7s-link"></i>
-                            </div>
-                            <div class="blog-img"><a href="#"><img src="{% static 'medicalstatic/img/blog/1.jpg' %}" alt=""></a>
-                                <div class="blog-event-date">
-                                    <h3>13 <small>Jun</small></h3>
-                                </div>
-                            </div>
-                            <div class="blog-content">
-                                <a href="#"><h4>What's the Right Choice? </h4></a>
-                                <i class="fa fa-user-o"></i> <a href="#">Admin</a> | <i class="fa fa-heart-o"></i> <a href="#">Like :20 </a> | <i class="fa fa-comment-o"></i><a href="#"> Comments: 10</a>
-                                <p>come from a family of doctors and I was suffering from morbid obesity with co-morbidities like diabetes, hypertension, and sleep apnoea.</p>
-                                <a href="#" class="btn btn-simple">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="blog-item style-1">
-                            <div class="blog-date text-center">
-                                <i class="pe-7s-link"></i>
-                            </div>
-                            <div class="blog-img"><a href="#"><img src="{% static 'medicalstatic/img/blog/2.jpg' %}" alt=""></a>
-                                <div class="blog-event-date">
-                                    <h3>17 <small>Jun</small></h3>
-                                </div>
-                            </div>
-                            <div class="blog-content">
-                                <a href="#"><h4>Caregiver Series </h4></a>
-                                <i class="fa fa-user-o"></i> <a href="#">Admin</a> | <i class="fa fa-heart-o"></i> <a href="#">Like :20 </a> | <i class="fa fa-comment-o"></i><a href="#"> Comments: 10</a>
-                                <p>come from a family of doctors and I was suffering from morbid obesity with co-morbidities like diabetes, hypertension, and sleep apnoea.</p>
-                                <a href="#" class="btn btn-simple">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-xs-12 center-block">
-                        <div class="blog-item style-1">
-                            <div class="blog-date text-center">
-                                <i class="pe-7s-link"></i>
-                            </div>
-                            <div class="blog-img"><a href="#"><img src="{% static 'medicalstatic/img/blog/3.jpg' %}" alt=""></a>
-                                <div class="blog-event-date">
-                                    <h3>19 <small>Jun</small></h3>
-                                </div>
-                            </div>
-                            <div class="blog-content">
-                                <a href="#"><h4>Little Hats, Big Hearts </h4></a>
-                                <i class="fa fa-user-o"></i> <a href="#">Admin</a> | <i class="fa fa-heart-o"></i> <a href="#">Like :20 </a> | <i class="fa fa-comment-o"></i><a href="#"> Comments: 10</a>
-                                <p>come from a family of doctors and I was suffering from morbid obesity with co-morbidities like diabetes, hypertension, and sleep apnoea.</p>
-                                <a href="#" class="btn btn-simple">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- blog end -->
 {% endblock bodyblock %}

@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models.deletion import CASCADE
+from django.db.models.fields import URLField
 
 # Create your models here.
 class SlideModel(models.Model):
@@ -85,3 +86,60 @@ class Department_galary(models.Model):
         except:
             url=''
         return url
+
+
+class Schedule(models.Model):
+    day= models.CharField(max_length=50)
+    time= models.CharField(max_length=50)
+    def __str__(self):
+        return self.day
+
+
+class Doctor(models.Model):
+    doc_name = models.CharField(max_length=150)
+    doc_image = models.ImageField(upload_to='dep_images/', blank=True)
+    doc_designation= models.CharField(max_length=50)
+    fb_link= models.URLField(max_length=254, blank=True)
+    tw_link= models.URLField(max_length=254, blank=True)
+    li_link= models.URLField(max_length=254, blank=True)
+    doc_schedule= models.ManyToManyField(Schedule, related_name='doct_schedule')
+
+
+    def __str__(self):
+        return self.doc_name
+
+
+    def image_url(self):
+        try:
+            url=self.doc_image.url
+        except:
+            url=''
+        return url
+
+
+
+class ServicesCount(models.Model):
+    service_count = models.IntegerField('Service Count')
+    services_title = models.CharField('Service', max_length=50)
+    def __str__(self):
+        return self.services_title
+
+
+
+class Clint_feedback(models.Model):
+    cli_name = models.CharField('Client Name', max_length=50)
+    cli_designation = models.CharField('Client Designation', max_length=50)
+    cli_feedback= models.TextField()
+    cli_image = models.ImageField(upload_to='dep_images/', blank=True)
+
+    def __str__(self):
+        return self.cli_name
+
+
+    def image_url(self):
+        try:
+            url=self.cli_image.url
+        except:
+            url=''
+        return url
+

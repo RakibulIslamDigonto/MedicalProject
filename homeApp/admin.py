@@ -1,5 +1,5 @@
 from django.contrib import admin
-from homeApp.models import SlideModel, Skill, Services, Appoinment, Department, Department_galary
+from homeApp.models import SlideModel, Skill, Services, Appoinment, Department, Department_galary, Schedule, Doctor, Clint_feedback, ServicesCount
 
 
 # Register your models here.
@@ -61,3 +61,49 @@ class Department_gal_Admin(admin.ModelAdmin):
     ]
     
 admin.site.register(Department_galary, Department_gal_Admin)
+
+
+class ScheduleAdmin(admin.ModelAdmin):
+    list_display = [
+        'day',
+        'time'
+    ]
+    
+admin.site.register(Schedule, ScheduleAdmin)
+
+
+class DoctorAdmin(admin.ModelAdmin):
+    list_display = [
+        'doc_name',
+        'doc_image',
+        'doc_designation',
+        'fb_link',
+        'tw_link',
+        'li_link'
+    ]
+
+admin.site.register(Doctor, DoctorAdmin)
+
+
+class ServicesCountAdmin(admin.ModelAdmin):
+    list_display = [
+        'service_count',
+        'services_title'
+    ]
+
+
+admin.site.register(ServicesCount, ServicesCountAdmin)
+
+
+class ClintFeedbackAdmin(admin.ModelAdmin):
+    list_display = [
+        'cli_name',
+        'cli_designation',
+        'cli_feedback',
+        'cli_image'
+    ]
+
+
+admin.site.register(Clint_feedback, ClintFeedbackAdmin)
+
+
